@@ -22,8 +22,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/pirl/pirl/common"
-	"github.com/pirl/pirl/core/types"
+	"github.com/RajaMBZ/internetcoin/common"
+	"github.com/RajaMBZ/internetcoin/core/types"
 )
 
 // NotFound is returned by API methods if the requested item does not exist.
