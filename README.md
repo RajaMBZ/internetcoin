@@ -1,10 +1,10 @@
-## Go Pirl 1.8.1 ( testing )
+## Go Internetcoin 1.8.1 ( testing )
 
-Official golang implementation of the Pirl protocol.
+Official golang implementation of the Internetcoin protocol.
 
 [![API Reference](
 https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
-)](https://godoc.org/github.com/pirl/pirl)
+)](https://godoc.org/github.com/RajaMBZ/internetcoin)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ethereum/go-ethereum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Automated builds are available for stable releases and the unstable master branch.
@@ -13,7 +13,7 @@ Binary archives are published at https://geth.ethereum.org/downloads/.
 ## Building the source
 
 For prerequisites and detailed build instructions please read the
-[Installation Instructions](https://github.com/pirl/pirl/wiki/Building-Ethereum)
+[Installation Instructions](https://github.com/rajambz/internetcoin/wiki/Building-Ethereum)
 on the wiki.
 
 Building geth requires both a Go (version 1.7 or later) and a C compiler.
@@ -32,8 +32,8 @@ The go-ethereum project comes with several wrappers/executables found in the `cm
 
 | Command    | Description |
 |:----------:|-------------|
-| **`geth`** | Our main Ethereum CLI client. It is the entry point into the Ethereum network (main-, test- or private net), capable of running as a full node (default) archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Ethereum network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `geth --help` and the [CLI Wiki page](https://github.com/pirl/pirl/wiki/Command-Line-Options) for command line options. |
-| `abigen` | Source code generator to convert Ethereum contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [Ethereum contract ABIs](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI) with expanded functionality if the contract bytecode is also available. However it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://github.com/pirl/pirl/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts) wiki page for details. |
+| **`geth`** | Our main Ethereum CLI client. It is the entry point into the Ethereum network (main-, test- or private net), capable of running as a full node (default) archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Ethereum network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `geth --help` and the [CLI Wiki page](https://github.com/rajambz/internetcoin/wiki/Command-Line-Options) for command line options. |
+| `abigen` | Source code generator to convert Ethereum contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [Ethereum contract ABIs](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI) with expanded functionality if the contract bytecode is also available. However it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://github.com/rajambz/internetcoin/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts) wiki page for details. |
 | `bootnode` | Stripped down version of our Ethereum client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks. |
 | `evm` | Developer utility version of the EVM (Ethereum Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `evm --code 60ff60ff --debug`). |
 | `gethrpctest` | Developer utility tool to support our [ethereum/rpc-test](https://github.com/ethereum/rpc-tests) test suite which validates baseline conformity to the [Ethereum JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC) specs. Please see the [test suite's readme](https://github.com/ethereum/rpc-tests/blob/master/README.md) for details. |
@@ -44,7 +44,7 @@ The go-ethereum project comes with several wrappers/executables found in the `cm
 ## Running geth
 
 Going through all the possible command line flags is out of scope here (please consult our
-[CLI Wiki page](https://github.com/pirl/pirl/wiki/Command-Line-Options)), but we've
+[CLI Wiki page](https://github.com/rajambz/internetcoin/wiki/Command-Line-Options)), but we've
 enumerated a few common parameter combos to get you up to speed quickly on how you can run your
 own Geth instance.
 
