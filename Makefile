@@ -2,19 +2,19 @@
 # with Go source code. If you know what GOPATH is then you probably
 # don't need to bother with make.
 
-.PHONY: pirl android ios pirl-cross swarm evm all test clean
-.PHONY: pirl-linux pirl-linux-386 pirl-linux-amd64 pirl-linux-mips64 pirl-linux-mips64le
-.PHONY: pirl-linux-arm pirl-linux-arm-5 pirl-linux-arm-6 pirl-linux-arm-7 pirl-linux-arm64
-.PHONY: pirl-darwin pirl-darwin-386 pirl-darwin-amd64
-.PHONY: pirl-windows pirl-windows-386 pirl-windows-amd64
+.PHONY: internetcoin android ios internetcoin-cross swarm evm all test clean
+.PHONY: internetcoin-linux internetcoin-linux-386 internetcoin-linux-amd64 internetcoin-linux-mips64 internetcoin-linux-mips64le
+.PHONY: internetcoin-linux-arm internetcoin-linux-arm-5 internetcoin-linux-arm-6 internetcoin-linux-arm-7 internetcoin-linux-arm64
+.PHONY: internetcoin-darwin internetcoin-darwin-386 internetcoin-darwin-amd64
+.PHONY: internetcoin-windows internetcoin-windows-386 internetcoin-windows-amd64
 ##export GOPATH=$(pwd)
 GOBIN = $(shell pwd)/build/bin
 GO ?= latest
 
-pirl:
-	build/env.sh go run build/ci.go install ./cmd/pirl
+internetcoin:
+	build/env.sh go run build/ci.go install ./cmd/internetcoin
 	@echo "Done building."
-	@echo "Run \"$(GOBIN)/pirl\" to launch pirl."
+	@echo "Run \"$(GOBIN)/internetcoin\" to launch internetcoin."
 
 swarm:
 	build/env.sh go run build/ci.go install ./cmd/swarm
@@ -27,12 +27,12 @@ all:
 android:
 	build/env.sh go run build/ci.go aar --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/pirl.aar\" to use the library."
+	@echo "Import \"$(GOBIN)/internetcoin.aar\" to use the library."
 
 ios:
 	build/env.sh go run build/ci.go xcode --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/pirl.framework\" to use the library."
+	@echo "Import \"$(GOBIN)/internetcoin.framework\" to use the library."
 
 test: all
 	build/env.sh go run build/ci.go test
@@ -55,92 +55,92 @@ devtools:
 
 # Cross Compilation Targets (xgo)
 
-pirl-cross: pirl-linux pirl-darwin pirl-windows pirl-android pirl-ios
+internetcoin-cross: internetcoin-linux internetcoin-darwin internetcoin-windows internetcoin-android internetcoin-ios
 	@echo "Full cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-*
+	@ls -ld $(GOBIN)/internetcoin-*
 
-pirl-linux: pirl-linux-386 pirl-linux-amd64 pirl-linux-arm pirl-linux-mips64 pirl-linux-mips64le
+internetcoin-linux: internetcoin-linux-386 internetcoin-linux-amd64 internetcoin-linux-arm internetcoin-linux-mips64 internetcoin-linux-mips64le
 	@echo "Linux cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-*
+	@ls -ld $(GOBIN)/internetcoin-linux-*
 
-pirl-linux-386:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/386 -v ./cmd/pirl
+internetcoin-linux-386:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/386 -v ./cmd/internetcoin
 	@echo "Linux 386 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep 386
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep 386
 
-pirl-linux-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 -v ./cmd/pirl
+internetcoin-linux-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 -v ./cmd/internetcoin
 	@echo "Linux amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep amd64
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep amd64
 
-pirl-linux-arm: pirl-linux-arm-5 pirl-linux-arm-6 pirl-linux-arm-7 pirl-linux-arm64
+internetcoin-linux-arm: internetcoin-linux-arm-5 internetcoin-linux-arm-6 internetcoin-linux-arm-7 internetcoin-linux-arm64
 	@echo "Linux ARM cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep arm
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep arm
 
-pirl-linux-arm-5:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-5 -v ./cmd/pirl
+internetcoin-linux-arm-5:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-5 -v ./cmd/internetcoin
 	@echo "Linux ARMv5 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep arm-5
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep arm-5
 
-pirl-linux-arm-6:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-6 -v ./cmd/pirl
+internetcoin-linux-arm-6:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-6 -v ./cmd/internetcoin
 	@echo "Linux ARMv6 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep arm-6
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep arm-6
 
-pirl-linux-arm-7:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-7 -v ./cmd/pirl
+internetcoin-linux-arm-7:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm-7 -v ./cmd/internetcoin
 	@echo "Linux ARMv7 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep arm-7
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep arm-7
 
-pirl-linux-arm64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm64 -v ./cmd/pirl
+internetcoin-linux-arm64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/arm64 -v ./cmd/internetcoin
 	@echo "Linux ARM64 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep arm64
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep arm64
 
-pirl-linux-mips:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips --ldflags '-extldflags "-static"' -v ./cmd/pirl
+internetcoin-linux-mips:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips --ldflags '-extldflags "-static"' -v ./cmd/internetcoin
 	@echo "Linux MIPS cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep mips
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep mips
 
-pirl-linux-mipsle:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mipsle --ldflags '-extldflags "-static"' -v ./cmd/pirl
+internetcoin-linux-mipsle:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mipsle --ldflags '-extldflags "-static"' -v ./cmd/internetcoin
 	@echo "Linux MIPSle cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep mipsle
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep mipsle
 
-pirl-linux-mips64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips64 --ldflags '-extldflags "-static"' -v ./cmd/pirl
+internetcoin-linux-mips64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips64 --ldflags '-extldflags "-static"' -v ./cmd/internetcoin
 	@echo "Linux MIPS64 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep mips64
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep mips64
 
-pirl-linux-mips64le:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips64le --ldflags '-extldflags "-static"' -v ./cmd/pirl
+internetcoin-linux-mips64le:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=linux/mips64le --ldflags '-extldflags "-static"' -v ./cmd/internetcoin
 	@echo "Linux MIPS64le cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-linux-* | grep mips64le
+	@ls -ld $(GOBIN)/internetcoin-linux-* | grep mips64le
 
-pirl-darwin: pirl-darwin-386 pirl-darwin-amd64
+internetcoin-darwin: internetcoin-darwin-386 internetcoin-darwin-amd64
 	@echo "Darwin cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-darwin-*
+	@ls -ld $(GOBIN)/internetcoin-darwin-*
 
-pirl-darwin-386:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/386 -v ./cmd/pirl
+internetcoin-darwin-386:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/386 -v ./cmd/internetcoin
 	@echo "Darwin 386 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-darwin-* | grep 386
+	@ls -ld $(GOBIN)/internetcoin-darwin-* | grep 386
 
-pirl-darwin-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 -v ./cmd/pirl
+internetcoin-darwin-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 -v ./cmd/internetcoin
 	@echo "Darwin amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-darwin-* | grep amd64
+	@ls -ld $(GOBIN)/internetcoin-darwin-* | grep amd64
 
-pirl-windows: pirl-windows-386 pirl-windows-amd64
+internetcoin-windows: internetcoin-windows-386 internetcoin-windows-amd64
 	@echo "Windows cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-windows-*
+	@ls -ld $(GOBIN)/internetcoin-windows-*
 
-pirl-windows-386:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/386 -v ./cmd/pirl
+internetcoin-windows-386:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/386 -v ./cmd/internetcoin
 	@echo "Windows 386 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-windows-* | grep 386
+	@ls -ld $(GOBIN)/internetcoin-windows-* | grep 386
 
-pirl-windows-amd64:
-	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/pirl
+internetcoin-windows-amd64:
+	build/env.sh go run build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/internetcoin
 	@echo "Windows amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/pirl-windows-* | grep amd64
+	@ls -ld $(GOBIN)/internetcoin-windows-* | grep amd64
