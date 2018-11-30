@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pirl/pirl/common"
+	"github.com/RajaMBZ/internetcoin/common"
 )
 
 func TestPack(t *testing.T) {
