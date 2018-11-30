@@ -27,8 +27,8 @@ import (
 
 	"reflect"
 
-	"github.com/pirl/pirl/common"
-	"github.com/pirl/pirl/crypto"
+	"github.com/RajaMBZ/internetcoin/common"
+	"github.com/RajaMBZ/internetcoin/crypto"
 )
 
 const jsondata = `
