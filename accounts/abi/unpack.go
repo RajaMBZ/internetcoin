@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/pirl/pirl/common"
+	"github.com/RajaMBZ/internetcoin/common"
 )
 
 // reads the integer based on its kind
