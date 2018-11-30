@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/pirl/pirl/common"
-	"github.com/pirl/pirl/crypto"
+	"github.com/RajaMBZ/internetcoin/common"
+	"github.com/RajaMBZ/internetcoin/crypto"
 )
 
 // Event is an event potentially triggered by the EVM's LOG mechanism. The Event
